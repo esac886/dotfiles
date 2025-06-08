@@ -2,7 +2,19 @@
 
 this repo contains configs for things that I used to use or using now
 
-# important
+## how to use
+
+to apply config you need to use GNU stow. For example:
+
+```shell
+$ git clone https://github.com/esac886/dotfiles
+$ cd dotfiles
+$ stow -t ~ zsh
+```
+
+it'll create symlink for zsh config inside home. you can apply on top of it every stow module you want.
+
+## important
 
 - zsh - autosuggestions, autocompletions
 - nvim - setup with lazyvim
@@ -11,7 +23,7 @@ this repo contains configs for things that I used to use or using now
 - tmux - custom prefix, colors, also nvim panes integration
 - qt6ct - for dark theme in qt apps
 
-# old
+## old
 
 - i3 - config that i used earlier for i3 with polybar (dark colorscheme, some keymaps, rofi integration)
 - rofi - dark colorscheme
