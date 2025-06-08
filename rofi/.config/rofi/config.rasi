@@ -1,0 +1,55 @@
+configuration {
+    show-icons: false;
+    font: "DejaVu Sans Mono 14";
+    columns: 1;
+    location: 0;
+    width: 30;
+    padding: 10;
+    border: 2;
+    border-radius: 5;
+}
+
+*{
+    background:     #232326;
+    background-alt: #232326;
+    foreground:     #888888;
+}
+
+element.normal.normal {
+    background-color: @background-alt;
+    text-color: @foreground;
+}
+
+element.alternate.normal {
+    background-color: @background-alt;
+    text-color: @foreground;
+}
+
+element.selected.normal {
+    background-color: @background;
+    text-color: #DCD7BA;
+}
+
+window {
+    background-color: @background;
+    border-color: @foreground;
+    border: 1;
+    width: 500px;
+    fixed-height: true;
+}
+
+listview {
+    lines: 1;
+    scrollbar: false;
+}
+
+inputbar {
+    background-color: @background;
+    text-color: @foreground;
+    border-color: @background;
+    border: 2;
+}
+
+textbox {
+    text-color: #C8C093;
+}
