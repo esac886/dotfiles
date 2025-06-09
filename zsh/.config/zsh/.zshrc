@@ -1,6 +1,20 @@
-# default
-setopt autocd extendedglob nomatch notify
+setopt autocd       # if input is i directory cd in it
+setopt extendedglob # extended pattern matches
+setopt nomatch      # print error if patterns not matches
+setopt notify       # notify about jobs imidiately
 unsetopt beep
+
+setopt globdots             # include dotfiles
+setopt interactive_comments # allow comments in shell
+unsetopt prompt_sp          # don't autoclean blanklines
+
+setopt append_history inc_append_history share_history # better history
+
+# auto-suggestions
+source $XDG_DATA_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# disable accidental ctrl s
+stty stop undef 
 
 # enable vi mode
 bindkey -v
@@ -9,10 +23,6 @@ bindkey -v
 bindkey '^P' up-line-or-history
 bindkey '^N' down-line-or-history
 
-# auto-complete
-source $ZDOTDIR/completion.zsh
-# todo fix zsh config
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # prompt
 source $ZDOTDIR/prompt.zsh
 # aliases
@@ -22,6 +32,9 @@ source $ZDOTDIR/aliases.zsh
 eval "$(zoxide init --cmd cd zsh)"
 # fzf
 source <(fzf --zsh)
+
+# auto-completions
+source $ZDOTDIR/completion.zsh
 
 # startx when logging in first tty
 if [[ -z $DISPLAY  ]] && [[ $(tty) = /dev/tty1 ]]; then

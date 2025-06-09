@@ -1,6 +1,7 @@
 # zsh
 export HISTFILE="$ZDOTDIR/.histfile"
 export HISTSIZE=10000
+export HISTCONTROL=ignoreboth
 export SAVEHIST=10000
 export KEYTIMEOUT=1 # for quick vi mode switching
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#777777" 

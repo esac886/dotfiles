@@ -10,24 +10,22 @@ function update_prompt_mode() {
 }
 
 function zle-line-init() {
-update_prompt_mode
-zle reset-prompt
+    update_prompt_mode
+    zle reset-prompt
 }
 
 function zle-keymap-select() {
-update_prompt_mode
-zle reset-prompt
+    update_prompt_mode
+    zle reset-prompt
 }
 
 zle -N zle-line-init
 zle -N zle-keymap-select
 
 # Find and set branch name var if in git repository.
-function git_branch_name()
-{
+function git_branch_name(){
     branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
-    if [[ $branch == "" ]];
-    then
+    if [[ $branch == "" ]]; then
         :
     else
         echo '- ('$branch')'

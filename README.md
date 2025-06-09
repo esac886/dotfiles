@@ -16,7 +16,7 @@ it'll create symlink for zsh config inside home. you can apply on top of it ever
 
 ## important
 
-- zsh - autosuggestions, autocompletions
+- zsh - autosuggestions (`zsh-autosuggestions` required), autocompletions
 - nvim - setup with lazyvim
 - qutebrowser - custom dark colorscheme, my keymaps
 - x11 - setup with autorandr, feh, dwmblocks and dwm.
