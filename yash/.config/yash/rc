@@ -1,0 +1,229 @@
+## ENV
+: ${LOGNAME:=$(logname)} ${HOSTNAME:=$(uname -n)}
+
+# xdg
+XDG_CONFIG_HOME="$HOME/.config"
+XDG_DATA_HOME="$HOME/.local/share"
+XDG_CACHE_HOME="$HOME/.cache"
+
+# default apps
+TERM=st
+TERMINAL=$TERM
+EDITOR=nvim
+FCEDIT=$EDITOR
+
+# paging
+MANPAGER=less
+PAGER=moar
+MOAR='-no-statusbar -quit-if-one-screen -wrap'
+
+# misc
+GOPATH=$HOME/dev/go
+GTK_THEME=Adwaita:dark
+QT_QPA_PLATFORMTHEME=qt6ct
+: ${ECHO_STYLE:=RAW}
+
+# variables needed for command history
+HISTFILE=${XDG_STATE_HOME:-~/.local/state}/yash/history
+# create HISTFILE parent directory if missing
+! [ -d "${HISTFILE%/*}" ] && mkdir -p "${HISTFILE%/*}"
+HISTSIZE=5000
+
+# emulate bash's $SHLVL
+if [ "${_old_shlvl+set}" != set ]; then
+  _old_shlvl=${SHLVL-}
+fi
+SHLVL=$((_old_shlvl+1)) 2>/dev/null || SHLVL=1
+export SHLVL
+
+## SETS
+# enable bash-like extended expansion
+set --brace-expand
+# enable recursive pathname expansion
+set --extended-glob
+# prevent redirections from overwriting existing files
+set --no-clobber
+# don't implicitly expand non-existent variables to empty strings
+set --no-unset
+# don't save commands starting with a space in history
+set --hist-space
+# print job status update ASAP, but only while line-editing
+set --notify-le
+# some terminfo data are broken; meta flags have to be ignored for UTF-8
+set --le-no-conv-meta
+# enable command line prediction
+set --le-predict
+# enable vi mode
+set --vi
+
+## KEYMAPS
+bindkey -aev '\^F' accept-prediction
+bindkey -aev '\^V' clear-candidates
+
+## ALIASES
+alias o='xdg-open'
+
+alias dnfi='sudo dnf install'
+alias dnfr='sudo dnf remove'
+alias dnfu='sudo dnf update'
+
+alias c='clear'
+alias ls='ls --color=auto --human-readable'
+alias ll='ls -la --color=auto --human-readable'
+alias l='ls -l --color=auto --human-readable'
+
+alias g='git'
+
+alias sorc='. $XDG_CONFIG_HOME/yash/rc'
+# alias soenv='source $ZDOTDIR/.zshenv'
+
+alias nv='nvim'
+
+alias ff='fastfetch'
+
+alias weather='curl wttr.in | head -n -2'
+alias audio='systemctl --user restart pipewire.service'
+
+## zoxide
+cd() {
+    if [ "$#" -eq 0 ]; then
+        command cd $HOME
+    elif [ "$@" === "-" ]; then
+        command cd -
+    else
+        local cmd=$(zoxide query "$@" 2>/dev/null)
+        [ $cmd ] && command cd $cmd || command cd "$@"
+    fi
+    zoxide add "$(pwd)"
+}
+
+## fzf
+# history
+fzh() {
+    local cmd
+    history | tac | fzf --tac --height 40% --reverse # | awk '{print $2}'
+}
+# search files in user home
+fzp() {
+    local file
+    fd $HOME --type f -H -E '.steam*' | fzf
+}
+
+## PROMPT
+# define function that updates git info
+COMMAND_NOT_FOUND_HANDLER=()
+_update_git_branch() {
+    branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+    if [[ $branch == "" ]]; then
+        _git_branch=
+    else
+        _git_branch='('$branch')'
+    fi
+}
+
+# update git_branch on each prompt
+PROMPT_COMMAND='_update_git_branch'
+
+## define prompt
+# colors
+if [ -n "${SSH_CONNECTION-}" ]; then
+  _userc='\fy.'     # yellow hostname for SSH remote
+else
+  _userc='\fm.'     # green hostname for local
+fi
+_dirc='\fg.'
+_gitc='\fc.'
+
+# select last 5 dirs in pwd
+_update_pwd_info() {
+    _pwd_info=$(pwd | sed 's|^/home/[^/]\+\(/\?\)|~\1|' | awk -F/ '{for (i=NF-4; i<=NF; i++) if (i > 0) printf "%s%s", $i, (i < NF ? "/" : ""); print ""}')
+}
+PROMPT_COMMAND=("$PROMPT_COMMAND" '_update_pwd_info')
+
+# username@hostname pwd >> 
+YASH_PS1=$_userc'[${LOGNAME}@${HOSTNAME}] '$_dirc'$_pwd_info\fb. >> '
+# (git branch)
+YASH_PS1R=$_gitc'${_git_branch}'
+# bold font style for prompt
+YASH_PS1S='\fo.'
+# different color for prediction
+YASH_PS1P='\fDy.'
+
+# prompt for next lines of command (when entering \ for example)
+YASH_PS2='> '
+# blink font style for 2nd prompt
+YASH_PS2S='\fb.'
+
+# some 4nd prompt i dunno
+YASH_PS4='\fm.+ '
+YASH_PS4S='\fmo.'
+
+unset _userc _dirc _gitc
+# No escape sequences allowed in the POSIXly-correct mode.
+PS1='${LOGNAME}@${HOSTNAME%%.*} '$PS1
+
+## MISC
+# avoid removing/overwriting existing files by accident
+cp() if [ -t 0 ]; then command cp -i "$@"; else command cp "$@"; fi
+mv() if [ -t 0 ]; then command mv -i "$@"; else command mv "$@"; fi
+rm() if [ -t 0 ]; then command rm -i "$@"; else command rm "$@"; fi
+
+if grep --color=auto -q X <<<X 2>/dev/null; then
+  grep() { command grep --color=auto "$@"; }
+fi
+if ggrep --color=auto -q X <<<X 2>/dev/null; then
+  ggrep() { command ggrep --color=auto "$@"; }
+fi
+
+# when a directory name is entered as a command, treat as "cd"
+_autocd()
+if [ -d "$1" ]; then
+  HANDLED=true
+  cd -- "$@"
+  break -i
+fi
+COMMAND_NOT_FOUND_HANDLER=("$COMMAND_NOT_FOUND_HANDLER" '_autocd "$@"')
+
+# treat command names starting with % as "fg"
+_autofg()
+if [ $# -eq 1 ]; then
+  case $1 in (%*)
+    HANDLED=true
+    fg "$1"
+    break -i
+  esac
+fi
+COMMAND_NOT_FOUND_HANDLER=("$COMMAND_NOT_FOUND_HANDLER" '_autofg "$@"')
+
+# print file type when executing non-executable files
+_file_type()
+if [ -e "$1" ] && ! [ -d "$1" ]; then
+  file -- "$1"
+fi
+COMMAND_NOT_FOUND_HANDLER=("$COMMAND_NOT_FOUND_HANDLER" '_file_type "$@"')
+
+# prevent clearing history by accident
+history()
+if [ -t 0 ] && (
+  for arg do
+    case "${arg}" in
+      (-[drsw]?* | --*=*) ;;
+      (-*c*) exit;;
+    esac
+  done
+  false
+) then
+  printf 'history: seems you are trying to clear the whole history.\n' >&2
+  printf 'are you sure? (yes/no) ' >&2
+  case "$(head -n 1)" in
+    ([Yy]*) command history "$@";;
+    (*)     printf 'history: cancelled.\n' >&2;;
+  esac
+else
+  command history "$@"
+fi
+
+# ensure job control works as expected
+case $- in (*m*)
+  trap - TSTP TTIN TTOU
+esac
