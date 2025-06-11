@@ -9,8 +9,8 @@ alias l='ls -l --color=auto --human-readable'
 
 alias g='git'
 
-alias sozsh='source ~/.config/zsh/.zshrc'
-alias soenv='source ~/.config/zsh/.zshenv'
+alias sozsh='source $ZDOTDIR/.zshrc'
+alias soenv='source $ZDOTDIR/.zshenv'
 
 alias nv='nvim'
 

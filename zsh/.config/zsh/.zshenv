@@ -17,7 +17,8 @@ export TERMINAL=$TERM
 export EDITOR=nvim
 
 # paging
-export PAGER=$HOME/.local/bin/moar
+export MANPAGER=less
+export PAGER=moar
 export MOAR='-no-statusbar -quit-if-one-screen -wrap'
 
 # misc
