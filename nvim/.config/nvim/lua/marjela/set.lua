@@ -14,8 +14,6 @@ vim.opt.wrap = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
--- todo maybe in xdg_data or smth
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
