@@ -1,0 +1,59 @@
+map Q gq
+
+set guicursor = ""
+
+set nu = true
+set relativenumber = true
+
+set tabstop = 4
+set softtabstop = 4
+set shiftwidth = 4
+set expandtab = true
+
+set smartindent = true
+
+set wrap = true
+
+set hlsearch = false
+set incsearch = true
+set ignorecase = true
+
+set scrolloff = 8
+set signcolumn = "yes"
+set isfname:append("@-@")
+
+set updatetime = 50
+
+let mapleader = " "
+
+-- center cursor while navigating
+nmap <C-d>  <C-d>zz
+nmap <C-u>  <C-u>zz
+
+-- keeps searching results in the middle
+nmap n  nzz
+nmap N  nzz
+
+-- pasting without loosing yanked content
+xmap <leader>P "_d
+
+-- yanking in system clipboard
+n <leader>y "+y
+vmap <leader>y "+y
+nmap <leader>Y "+Y
+
+-- pasting from system clipboard
+nmap <leader>p "+p
+vmap <leader>p "+p
+
+-- deleting in void reg
+vmap <leader>d "_d
+nmap <leader>d "_d
+
+nmap gD <Action>(GotoDefinition)
+nmap gd <Action>(GotoDeclaration)
+nmap gI <Action>(GotoImplementation)
+nmap K <Action>(ShowHoverInfo)
+
+nmap <leader>rn <Action>(RenameElement)
+imap <C-d> <Action>(ShowHoverInfo)
