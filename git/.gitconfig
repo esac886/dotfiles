@@ -19,9 +19,11 @@
     sw = switch
     ch = checkout
 
-    ft = fetch
+    ft = fetch --prune
     mg = merge
+    mgc = merge --continue
     rb = rebase
+    rbi = rebase --interactive
     rbc = rebase --continue
 
     pl = pull --rebase
