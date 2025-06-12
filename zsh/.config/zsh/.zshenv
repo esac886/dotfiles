@@ -10,7 +10,9 @@ export HISTSIZE=10000
 export HISTCONTROL=ignoreboth
 export SAVEHIST=10000
 export KEYTIMEOUT=1 # for quick vi mode switching
+# for plugins
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#777777" 
+export ZSH_SYSTEM_CLIPBOARD_METHOD=xcc # use xclip for clipboard
 
 # default apps
 export TERM=st
