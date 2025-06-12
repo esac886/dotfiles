@@ -2,25 +2,25 @@
 : ${LOGNAME:=$(logname)} ${HOSTNAME:=$(uname -n)}
 
 # xdg
-XDG_CONFIG_HOME="$HOME/.config"
-XDG_DATA_HOME="$HOME/.local/share"
-XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
 
 # default apps
-TERM=st
-TERMINAL=$TERM
-EDITOR=nvim
-FCEDIT=$EDITOR
+export TERM=st
+export TERMINAL=$TERM
+export EDITOR=nvim
+export FCEDIT=$EDITOR
 
 # paging
-MANPAGER=less
-PAGER=moar
-MOAR='-no-statusbar -quit-if-one-screen -wrap'
+export MANPAGER=less
+export PAGER=moar
+export MOAR='-no-statusbar -quit-if-one-screen -wrap'
 
 # misc
-GOPATH=$HOME/dev/go
-GTK_THEME=Adwaita:dark
-QT_QPA_PLATFORMTHEME=qt6ct
+export GOPATH=$HOME/dev/go
+export GTK_THEME=Adwaita:dark
+export QT_QPA_PLATFORMTHEME=qt6ct
 : ${ECHO_STYLE:=RAW}
 
 # variables needed for command history
@@ -55,6 +55,7 @@ set --le-no-conv-meta
 set --le-predict
 # enable vi mode
 set --vi
+set --dot-glob
 
 ## KEYMAPS
 bindkey -aev '\^F' accept-prediction
