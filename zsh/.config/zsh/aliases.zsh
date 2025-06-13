@@ -14,7 +14,7 @@ alias soenv='source $ZDOTDIR/.zshenv'
 
 alias nv='nvim'
 
-alias ff='fastfetch'
+alias ff='fastfetch -l sparky --logo-color-1 magenta --color magenta'
 
 alias weather='curl wttr.in | head -n -2'
 alias audio='systemctl --user restart pipewire.service'
