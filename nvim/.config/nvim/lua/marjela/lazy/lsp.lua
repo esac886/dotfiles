@@ -21,7 +21,7 @@ return {
                     "taplo",                          --  toml
 
                     "dockerls",                       --  dockerfile
-                    "docker_compose_language_service" --  dockercompose
+                    -- "docker_compose_language_service" --  dockercompose
                 },
                 automatic_installation = true,
             })
@@ -44,7 +44,7 @@ return {
                 lemminx = {},
                 taplo = {},
                 dockerls = {},
-                docker_compose_language_service = {}
+                -- docker_compose_language_service = {}
             }
 
             for name, _ in pairs(servers) do
