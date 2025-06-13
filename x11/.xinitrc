@@ -3,7 +3,7 @@
 # audio
 pipewire &
 # load xrandr monitor profile
-autorandr --change
+autorandr -c
 # add ru layout
 setxkbmap -layout us,ru -option grp:lwin_toggle
 # disable sleep
@@ -13,4 +13,4 @@ feh --no-fehbg --bg-scale $XDG_DATA_HOME/bg
 # bar
 dwmblocks &
 # wm
-dbus-run-session dwm
+exec dbus-run-session dwm
