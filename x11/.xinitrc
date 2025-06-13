@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# audio
+pipewire &
 # load xrandr monitor profile
 autorandr --change
 # add ru layout
@@ -11,4 +13,4 @@ feh --no-fehbg --bg-scale $XDG_DATA_HOME/bg
 # bar
 dwmblocks &
 # wm
-exec dwm
+dbus-run-session dwm
