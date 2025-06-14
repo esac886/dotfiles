@@ -1,5 +1,4 @@
 vim.opt.guicursor = ""
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -39,3 +38,5 @@ vim.opt.nrformats = "bin,hex,alpha"
 vim.opt.autoread = true
 
 vim.cmd("colorscheme habamax")
+-- for pretty panes separator (at least in my colorscheme)
+vim.cmd("highlight WinSeparator ctermbg=0")
