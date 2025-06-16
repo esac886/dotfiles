@@ -27,8 +27,8 @@ it'll create symlink for zsh config inside home. you can apply on top of it ever
 ### dependencies
 
 - zsh
-    - (zsh-autosuggestions)[https://github.com/zsh-users/zsh-autosuggestions]
-    - (zsh-system-clipboard)[https://github.com/kutsan/zsh-system-clipboard]
+    - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+    - [zsh-system-clipboard](https://github.com/kutsan/zsh-system-clipboard)
 - nvim
     - git - for LazyVim
     - wget - for lsp installing
@@ -36,10 +36,10 @@ it'll create symlink for zsh config inside home. you can apply on top of it ever
     - npm - for lsp installing
     - ripgrep - for fast `:grep`
 - x11
-    - (dwm)[https://github.com/esac886/dwm] - WM
-    - (st)[https://github.com/esac886/st] - terminal emulator
-    - (dwmblocks)[https://github.com/torrinfail/dwmblocks] - for dwm bar easy customization
-    - (autorandr)[https://github.com/phillipberndt/autorandr] - for automatically applying xrandr settings on startup
+    - [dwm](https://github.com/esac886/dwm) - WM
+    - [st](https://github.com/esac886/st) - terminal emulator
+    - [dwmblocks](https://github.com/torrinfail/dwmblocks) - for dwm bar easy customization
+    - [autorandr](https://github.com/phillipberndt/autorandr) - for automatically applying xrandr settings on startup
     - feh - for wallpapers
     - pipewire for audio (pipewire, pipewire-pulse, alsa, alsa-pulse)
 - git
