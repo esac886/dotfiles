@@ -1,6 +1,5 @@
-alias dnfi='sudo dnf install'
-alias dnfr='sudo dnf remove'
-alias dnfu='sudo dnf update'
+alias xbps-install='sudo xbps-install -S'
+alias xbps-remove='sudo xbps-remove'
 
 alias c='clear'
 alias ls='ls --color=auto --human-readable'
@@ -16,5 +15,5 @@ alias nv='nvim'
 
 alias ff='fastfetch -l sparky --logo-color-1 white --color magenta'
 
-alias weather='curl wttr.in | head -n -2'
+alias weather='curl -s wttr.in | head -n -2'
 alias audio='systemctl --user restart pipewire.service'
