@@ -1,12 +1,13 @@
 # some sets
 config.load_autoconfig(False)
-config.set("auto_save.session", True)
-config.set("content.proxy", "socks://127.0.0.1:12334")
-config.set("statusbar.show", "always")
-config.set("content.autoplay", False)
+config.set('auto_save.session', True)
+config.set('content.proxy', 'socks://127.0.0.1:12334')
+config.set('statusbar.show', 'always')
+config.set('content.autoplay', False)
+config.set('content.pdfjs', True)
 
-config.set("colors.webpage.preferred_color_scheme", "dark")
-config.set("colors.webpage.darkmode.enabled", False)
+config.set('colors.webpage.preferred_color_scheme', 'dark')
+config.set('colors.webpage.darkmode.enabled', False)
 
 ## keybindings
 config.bind('gp', 'config-cycle --print --temp content.proxy socks://127.0.0.1:12334 none')
@@ -18,16 +19,7 @@ config.bind('<Ctrl-l>', 'tab-move +')
 config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
 config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='prompt')
 
-config.bind('<Ctrl-1>', 'tab-select 1')
-config.bind('<Ctrl-2>', 'tab-select 2')
-config.bind('<Ctrl-3>', 'tab-select 3')
-config.bind('<Ctrl-4>', 'tab-select 4')
-config.bind('<Ctrl-5>', 'tab-select 5')
-config.bind('<Ctrl-6>', 'tab-select 6')
-config.bind('<Ctrl-7>', 'tab-select 7')
-config.bind('<Ctrl-8>', 'tab-select 8')
-config.bind('<Ctrl-9>', 'tab-select 9')
-config.bind('<Ctrl-0>', 'tab-select 10')
+config.bind('gy', "message-info 'spawning mpv for playing {title}' ;; spawn mpv {url}")
 
 ## search
 c.url.default_page = 'search.brave.com'
@@ -44,22 +36,23 @@ c.url.searchengines = {
 c.completion.open_categories = ['history']
 
 ## privacy
-config.set("content.webgl", False, "*")
-# config.set("content.canvas_reading", False)
-config.set("content.canvas_reading", True)
-config.set("content.geolocation", False)
-config.set("content.webrtc_ip_handling_policy", "default-public-interface-only")
-# config.set("content.cookies.accept", "all")
-config.set("content.cookies.accept", "no-3rdparty")
-config.set("content.cookies.store", True)
+config.set('content.webgl', False, '*')
+# config.set('content.canvas_reading', False)
+config.set('content.canvas_reading', True)
+config.set('content.geolocation', False)
+config.set('content.webrtc_ip_handling_policy', 'default-public-interface-only')
+# config.set('content.cookies.accept', 'all')
+config.set('content.cookies.accept', 'no-3rdparty')
+config.set('content.cookies.store', True)
 
 ## adblock
 c.content.blocking.enabled = True
+config.set('content.blocking.method', 'both') # requires python-adblock
 
 ## appearance
 # tabs
-c.tabs.show = "always"
-c.tabs.position = "top"
+c.tabs.show = 'always'
+c.tabs.position = 'top'
 c.tabs.padding = {'top': 5, 'bottom': 5, 'left': 9, 'right': 9}
 c.tabs.indicator.width = 0 # no tab indicators
 c.tabs.width = '7%'
@@ -68,10 +61,10 @@ c.fonts.default_family = []
 c.fonts.default_size = '12pt'
 
 # colors
-background = "#1c1c1c"
-background2 = "#242424"
-foreground = "#bcbcbc"
-highlight =  "#ffffff"
+background = '#1c1c1c'
+background2 = '#242424'
+foreground = '#bcbcbc'
+highlight =  '#ffffff'
 
 c.colors.statusbar.normal.bg = background
 c.colors.statusbar.normal.fg = foreground
@@ -89,9 +82,9 @@ c.colors.statusbar.private.bg = background
 c.colors.statusbar.private.fg = foreground
  
 c.colors.statusbar.passthrough.fg = foreground
-c.colors.statusbar.url.fg = "#80A267"
-c.colors.statusbar.url.success.https.fg = "#add6e8"
-c.colors.statusbar.url.hover.fg = "#add6e8"
+c.colors.statusbar.url.fg = '#80A267'
+c.colors.statusbar.url.success.https.fg = '#add6e8'
+c.colors.statusbar.url.hover.fg = '#add6e8'
 
 c.colors.tabs.odd.bg = background
 c.colors.tabs.even.bg = background
