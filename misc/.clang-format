@@ -3,5 +3,9 @@ BreakBeforeBraces: Attach
 IndentWidth: 4
 TabWidth: 4
 UseTab: Never
-ColumnLimit: 120
-AllowShortFunctionsOnASingleLine: Inline
+ColumnLimit: 160
+AllowShortFunctionsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+DerivePointerAlignment: false
+PointerAlignment: Left
+AlignArrayOfStructures: Left

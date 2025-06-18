@@ -25,7 +25,7 @@ return {
 
             cmp.setup({
                 mapping = cmp.mapping.preset.insert({
-                    ["<C-e>"] = cmp.mapping.abort(),
+                    ["<C-y>"] = cmp.mapping.abort(),
                     ['<CR>'] = cmp.mapping(
                         function(fallback)
                             if cmp.visible() then
@@ -52,7 +52,6 @@ return {
                             end
                         end, { "i", "s" }
                     ),
-
                     ["<S-Tab>"] = cmp.mapping(
                         function(fallback)
                             if cmp.visible() then
