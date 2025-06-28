@@ -17,4 +17,7 @@ alias nv='nvim'
 alias ff='fastfetch -l sparky --logo-color-1 white --color magenta'
 
 alias weather='curl -s wttr.in | head -n -2'
-alias audio='systemctl --user restart pipewire.service'
+alias audio='pkill pipewire; ( pipewire &> /dev/null & pipewire-pulse &> /dev/null & )'
+
+alias pagent-start='( $HOME/downloads/postman_agent/postman_agent &> /dev/null & )'
+alias pagent-stop='pkill -e "postman-agent|postman_agent"'

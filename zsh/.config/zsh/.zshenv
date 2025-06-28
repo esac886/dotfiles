@@ -29,9 +29,12 @@ export PAGER=moar
 export MOAR='-no-statusbar -quit-if-one-screen -wrap'
 
 # misc
-export GOPATH=$HOME/dev/go
 export GTK_THEME=Adwaita:dark
 export QT_QPA_PLATFORMTHEME=qt6ct
+export GOPATH=$HOME/dev/go
+# export CARGO_HOME=$HOME/dev/cargo
+# # add cargo binaries to path
+# [[ "$PATH" == *$CARGO_HOME/bin* ]] || PATH="$PATH:$CARGO_HOME/bin"
 
 # fzf
 export FZF_DEFAULT_OPTS="--reverse --style=minimal -m --no-scrollbar"
