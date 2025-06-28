@@ -1,22 +1,22 @@
 map Q gq
 
-set guicursor = ""
+set guicursor=""
 
-set nu = true
-set relativenumber = true
+set nu
+set relativenumber
 
-set tabstop = 4
-set softtabstop = 4
-set shiftwidth = 4
-set expandtab = true
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 
-set smartindent = true
+set smartindent
 
-set wrap = true
+set wrap
 
-set hlsearch = false
-set incsearch = true
-set ignorecase = true
+set nohlsearch
+set incsearch
+set ignorecase
 
 set scrolloff = 8
 set signcolumn = "yes"
