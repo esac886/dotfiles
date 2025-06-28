@@ -3,3 +3,5 @@
 !.gitignore
 !config.py
 !quickmarks
+!greasemonkey/
+!greasemonkey/yt-ads.js

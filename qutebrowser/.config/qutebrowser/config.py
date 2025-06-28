@@ -36,7 +36,7 @@ c.url.searchengines = {
 c.completion.open_categories = ['history']
 
 ## privacy
-config.set('content.webgl', False, '*')
+config.set('content.webgl', True, '*')
 # config.set('content.canvas_reading', False)
 config.set('content.canvas_reading', True)
 config.set('content.geolocation', False)
@@ -45,9 +45,34 @@ config.set('content.webrtc_ip_handling_policy', 'default-public-interface-only')
 config.set('content.cookies.accept', 'no-3rdparty')
 config.set('content.cookies.store', True)
 
+
 ## adblock
 c.content.blocking.enabled = True
 config.set('content.blocking.method', 'both') # requires python-adblock
+c.content.blocking.adblock.lists = [
+        "https://easylist.to/easylist/easylist.txt",
+        "https://easylist.to/easylist/easyprivacy.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/legacy.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2020.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2021.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2022.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2023.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2024.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-cookies.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-others.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt",
+        "https://easylist.to/easylist/fanboy-annoyance.txt",
+        "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
+        "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
+]
 
 ## appearance
 # tabs
