@@ -1,12 +1,5 @@
 return {
-    { -- automatically makes pairs for (,{,[,",",` etc.
-        "echasnovski/mini.pairs",
-        version = false,
-        config = function()
-            require("mini.pairs").setup()
-        end
-    },
-    {
+    { -- highlights hex colors in buffer
         "brenoprata10/nvim-highlight-colors",
         config = function()
             require("nvim-highlight-colors").setup({})
@@ -16,7 +9,13 @@ return {
         "tpope/vim-commentary"
     },
     {
-        "tpope/vim-repeat"
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && npm install",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
     },
     {
         "chrishrb/gx.nvim",
@@ -40,7 +39,7 @@ return {
             })
         end
     },
-    { -- : commands autocomplete
+    { -- colon commands autocomplete
         "gelguy/wilder.nvim",
         dependencies = {
             "roxma/nvim-yarp",
