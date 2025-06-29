@@ -6,6 +6,7 @@ alias c='clear'
 alias ls='ls --color=auto --human-readable'
 alias ll='ls -la --color=auto --human-readable'
 alias l='ls -l --color=auto --human-readable'
+alias ..='echo cd .. && cd ..'
 
 alias g='git'
 
