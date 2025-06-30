@@ -8,6 +8,8 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
+-- better switch indentation
+vim.opt.cinoptions=':0'
 
 vim.opt.wrap = true
 
