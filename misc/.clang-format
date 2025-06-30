@@ -4,8 +4,23 @@ IndentWidth: 4
 TabWidth: 4
 UseTab: Never
 ColumnLimit: 160
+
+AlignAfterOpenBracket: AlwaysBreak
 AllowShortFunctionsOnASingleLine: false
 AllowShortEnumsOnASingleLine: false
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+SpaceBeforeParens: ControlStatements
+
+# ptrs
 DerivePointerAlignment: false
 PointerAlignment: Left
 AlignArrayOfStructures: Left
+
+# switch
+IndentCaseLabels: false
+AlignConsecutiveShortCaseStatements:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: true
+  AlignCaseColons: false
