@@ -12,5 +12,7 @@ xset s off -dpms
 feh --no-fehbg --bg-scale $XDG_DATA_HOME/bg
 # bar
 dwmblocks &
+# composer
+picom -b
 # wm
 exec dbus-run-session dwm
