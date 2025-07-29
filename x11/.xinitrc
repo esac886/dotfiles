@@ -14,5 +14,7 @@ feh --no-fehbg --bg-scale $XDG_DATA_HOME/bg
 dwmblocks &
 # composer
 picom -b
+# for qt apps to see my cursor
+export XCURSOR_PATH=$HOME/.local/share/icons
 # wm
 exec dbus-run-session dwm
