@@ -34,15 +34,6 @@ return {
         "tpope/vim-commentary"
     },
     {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = "cd app && npm install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
-    },
-    {
         "chrishrb/gx.nvim",
         keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } },
         cmd = { "Browse" },
@@ -77,7 +68,7 @@ return {
                     ":"
                 },
                 next_key = "<tab>",
-                previous_key = "<C-q>",
+                previous_key = "<S-tab>",
                 accept_key = "<C-y>"
             })
 
