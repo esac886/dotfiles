@@ -6,7 +6,7 @@ unsetopt beep
 
 setopt globdots             # include dotfiles
 setopt interactive_comments # allow comments in shell
-unsetopt prompt_sp          # don't autoclean blanklines
+setopt promptsp             # don't clean lines without newline at the end
 
 setopt append_history inc_append_history share_history # better history
 
