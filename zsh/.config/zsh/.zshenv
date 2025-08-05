@@ -24,7 +24,7 @@ export EDITOR=nvim
 export FCEDIT=$EDITOR
 
 # paging
-export MANPAGER=less
+export MANPAGER=moar
 export PAGER=moar
 export MOAR='-no-statusbar -quit-if-one-screen -wrap'
 
