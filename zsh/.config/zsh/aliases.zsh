@@ -12,6 +12,7 @@ alias ll='ls -la --color=auto --human-readable'
 alias l='ls -l --color=auto --human-readable'
 alias grep='grep --color=auto'
 alias diff='diff --color'
+alias cp='cp -iv'
 
 alias ..='echo cd .. && cd ..'
 alias -- -='cd -'

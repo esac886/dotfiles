@@ -13,8 +13,8 @@ return {
                 dim = true
             })
 
-            vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg='#ffffff', bold = true, underline = true })
-            vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg='#999999', underline = true })
+            vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg = '#ffffff', bold = true, underline = true })
+            vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = '#999999', underline = true })
         end
     },
     { -- automatically makes pairs for (,{,[,",",` etc.More actions
@@ -29,9 +29,6 @@ return {
     },
     {
         "tpope/vim-repeat"
-    },
-    { -- auto commenting
-        "tpope/vim-commentary"
     },
     {
         "chrishrb/gx.nvim",
@@ -55,37 +52,4 @@ return {
             })
         end
     },
-    { -- colon commands autocomplete
-        "gelguy/wilder.nvim",
-        dependencies = {
-            "roxma/nvim-yarp",
-            "roxma/vim-hug-neovim-rpc"
-        },
-        config = function()
-            local wilder = require("wilder")
-            wilder.setup({
-                modes = {
-                    ":"
-                },
-                next_key = "<tab>",
-                previous_key = "<S-tab>",
-                accept_key = "<C-y>"
-            })
-
-            wilder.set_option("pipeline", {
-                wilder.branch(
-                    wilder.cmdline_pipeline(),
-                    wilder.python_search_pipeline(),
-
-                    wilder.cmdline_pipeline({
-                        fuzzy = 1,
-                        set_pcre2_pattern = 1,
-                    }),
-                    wilder.python_search_pipeline({
-                        pattern = "fuzzy",
-                    })
-                ),
-            })
-        end
-    }
 }
