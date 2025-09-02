@@ -36,3 +36,6 @@ vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 -- panes
 vim.keymap.set("n", "<C-w>>", "<C-w>3>")
 vim.keymap.set("n", "<C-w><", "<C-w>3<")
+
+-- verymagic for substitution
+vim.keymap.set("c", "s/", "s/\\v")

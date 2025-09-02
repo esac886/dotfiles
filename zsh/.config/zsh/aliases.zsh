@@ -8,7 +8,7 @@ alias uxbps='yes | sudo xbps-install -u xbps && yes | sudo xbps-install -Su'
 alias c='clear'
 
 alias ls='ls --color=auto --human-readable'
-alias ll='ls -la --color=auto --human-readable'
+alias ll='ls -lA --color=auto --human-readable'
 alias l='ls -l --color=auto --human-readable'
 alias grep='grep --color=auto'
 alias diff='diff --color'

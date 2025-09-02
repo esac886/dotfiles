@@ -4,8 +4,8 @@
 pipewire &
 # load xrandr monitor profile
 autorandr -c
-# add ru layout
-setxkbmap -layout us,ru -option grp:lwin_toggle
+# add ru layout (now in /etc/X11/xorg.conf.d/00-keyboard.conf)
+# setxkbmap -layout us,ru -option grp:menu_toggle
 # disable sleep
 xset s off -dpms
 # wallpaper

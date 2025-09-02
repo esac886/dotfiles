@@ -11,7 +11,7 @@ setopt promptsp             # don't clean lines without newline at the end
 setopt append_history inc_append_history share_history # better history
 
 # auto-suggestions
-source $XDG_DATA_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $XDG_DATA_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh
 # share vi-mode registers and system clipboard
 source $XDG_DATA_HOME/zsh-system-clipboard/zsh-system-clipboard.zsh
 
