@@ -19,9 +19,11 @@ source $XDG_DATA_HOME/zsh-system-clipboard/zsh-system-clipboard.zsh
 stty stop undef 
 
 # enable vi mode
-bindkey -v
-bindkey "^H" backward-delete-char
-bindkey "^?" backward-delete-char
+# bindkey -v
+# bindkey "^H" backward-delete-char
+# bindkey "^?" backward-delete-char
+# enable emacs mode
+bindkey -e
 
 # C-N and C-P up-down
 bindkey '^P' up-line-or-history
