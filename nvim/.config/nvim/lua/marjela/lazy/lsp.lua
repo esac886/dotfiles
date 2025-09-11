@@ -24,7 +24,6 @@ return {
 
         config = function()
             local lspconfig = require("lspconfig")
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             local servers = {
                 clangd = {},
@@ -33,7 +32,6 @@ return {
             }
 
             for name, opts in pairs(servers) do
-                opts.capabilities = capabilities
                 lspconfig[name].setup(opts)
             end
 
@@ -41,7 +39,6 @@ return {
                 callback = function(args)
                     local client = vim.lsp.get_client_by_id(args.data.client_id)
                     if not client then return end
-
                     -- not enable formatting for clangd this formatter is very annoying
                     if client.name ~= "clangd" and client.supports_method("textDocument/formatting", { bufnr = 0 }) then
                         -- format buf on save
@@ -59,8 +56,6 @@ return {
                     local opts = { buffer = args.buf }
                     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
                     vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
-                    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-                    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
                 end
             })
         end

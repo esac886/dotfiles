@@ -17,13 +17,6 @@ return {
             vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = '#999999', underline = true })
         end
     },
-    { -- automatically makes pairs for (,{,[,",",` etc.More actions
-        "echasnovski/mini.pairs",
-        version = false,
-        config = function()
-            require("mini.pairs").setup()
-        end
-    },
     {
         "tpope/vim-surround"
     },

@@ -22,11 +22,9 @@ return {
                     fzf = {},
                 }
             })
-
             telescope.load_extension("fzf")
 
             local builtin = require("telescope.builtin")
-
             -- find files in root
             vim.keymap.set("n", "<leader>fr", function()
                 builtin.find_files({ cwd = "/" })
@@ -47,7 +45,7 @@ return {
                 end
             end, {})
             -- find help
-            vim.keymap.set("n", "<leader>vh", builtin.help_tags, {})
+            vim.keymap.set("n", "<leader>fH", builtin.help_tags, {})
         end
     }
 }

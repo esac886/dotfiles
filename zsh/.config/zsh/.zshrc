@@ -32,8 +32,6 @@ source $ZDOTDIR/prompt.zsh
 # aliases
 source $ZDOTDIR/aliases.zsh
 
-# zoxide
-eval "$(zoxide init --cmd cd zsh)"
 # fzf
 source <(fzf --zsh)
 

@@ -2,10 +2,8 @@ local ls = require("luasnip")
 local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
-
 local su = require("luasnip_snippets.common.snip_utils")
 local nl = su.new_line
-local te = su.trig_engine
 
 ls.add_snippets("c", {
     s({ trig = "fori", desc = "for size_t loop" }, {
@@ -40,7 +38,6 @@ ls.add_snippets("go", {
         t "}", nl(), i(0, "", { key = "i0" })
     }),
 
-    -- main func
     s({ trig = "main", desc = "main file setup" }, {
         t "package main", nl(), nl(),
         t "func main() {", nl(),
@@ -69,7 +66,7 @@ ls.add_snippets("go", {
 
     -- prints
     s({ trig = "pf", desc = "fmt.Printf()" }, {
-        t "fmt.Printf(\"", i(1, "", { key = "i1" }), t "\", ", i(2, "", { key = "i2" }), t ")", i(0, "", { key = "i0" }) }),
+        t "fmt.Printf(\"", i(1, "", { key = "i1" }), t "\")", i(0, "", { key = "i0" }) }),
     s({ trig = "pl", desc = "fmt.Println()" }, {
         t "fmt.Println(\"", i(1, "", { key = "i1" }), t "\")", i(0, "", { key = "i0" })
     }),

@@ -1,23 +1,5 @@
 return {
     {
-        "NeogitOrg/neogit",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "sindrets/diffview.nvim",
-            "nvim-telescope/telescope.nvim"
-        },
-        config = function()
-            require("neogit").setup({
-                graph_style = "unicode",
-                kind = "replace"
-            })
-
-            vim.keymap.set("n", "<leader>gg", function()
-                vim.cmd("Neogit")
-            end)
-        end
-    },
-    {
         "lewis6991/gitsigns.nvim",
         config = function()
             require("gitsigns").setup({
@@ -32,18 +14,15 @@ return {
                     end
 
                     -- show changes
-                    map('n', '<leader>hp', gitsigns.preview_hunk)
+                    map('n', '<leader>gp', gitsigns.preview_hunk)
                     -- list hunks in cur buff
-                    map('n', '<leader>hl', gitsigns.setqflist)
+                    map('n', '<leader>gl', gitsigns.setqflist)
 
                     -- reseting
-                    map('n', '<leader>hr', gitsigns.reset_hunk)
-                    map('v', '<leader>hr', function()
+                    map('n', '<leader>gr', gitsigns.reset_hunk)
+                    map('v', '<leader>gr', function()
                         gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
                     end)
-
-                    -- Text object
-                    map({'o', 'x'}, 'ih', gitsigns.select_hunk)
                 end
             })
         end
