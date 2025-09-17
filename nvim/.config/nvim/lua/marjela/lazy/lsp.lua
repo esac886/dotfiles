@@ -53,6 +53,12 @@ return {
                         })
                     end
 
+                    if client.supports_method("textDocument/foldingRange") then
+                        -- folding with lsp
+                        vim.o.foldmethod = "expr"
+                        vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+                    end
+
                     local opts = { buffer = args.buf }
                     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
                     vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)

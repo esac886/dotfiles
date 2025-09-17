@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 vim.cmd("colorscheme habamax")
 
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
@@ -34,3 +33,6 @@ vim.opt.langmap =
 
 -- for pretty panes separator (at least in my colorscheme)
 vim.cmd("highlight WinSeparator ctermbg=0")
+
+-- disable autofolding when entering the buffer
+vim.o.foldlevelstart = 99
