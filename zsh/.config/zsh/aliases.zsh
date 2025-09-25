@@ -5,7 +5,6 @@ alias xbps-install='sudo xbps-install -S'
 alias xbps-remove='sudo xbps-remove'
 alias uxbps='yes | sudo xbps-install -u xbps && yes | sudo xbps-install -Su'
 
-alias c='clear'
 alias ls='ls -h --color=auto'
 alias l='ls -oght --color=auto'
 alias ll='ls -oghtA --color=auto'

@@ -32,6 +32,8 @@ export MOAR='-no-statusbar -quit-if-one-screen -wrap'
 export GTK_THEME=Adwaita:dark
 export QT_QPA_PLATFORMTHEME=qt6ct
 export GOPATH=$HOME/dev/go
+# add go binaries to path
+[[ "$PATH" == *$GOPATH/bin* ]] || PATH="$PATH:$GOPATH/bin"
 # export CARGO_HOME=$HOME/dev/cargo
 # # add cargo binaries to path
 # [[ "$PATH" == *$CARGO_HOME/bin* ]] || PATH="$PATH:$CARGO_HOME/bin"

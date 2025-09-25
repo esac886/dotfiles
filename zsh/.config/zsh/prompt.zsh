@@ -1,26 +1,6 @@
 setopt PROMPT_SUBST
 
-# color of arrow changes depending on vi mode
-function update_prompt_mode() {
-    if [[ $KEYMAP == vicmd ]]; then
-        PROMPT='%F{magenta}[%n@%m]%f %F{green}%5~%f %F{cyan}>>%f '
-    else
-        PROMPT='%F{magenta}[%n@%m]%f %F{green}%5~%f %F{red}>>%f '
-    fi
-}
-
-function zle-line-init() {
-    update_prompt_mode
-    zle reset-prompt
-}
-
-function zle-keymap-select() {
-    update_prompt_mode
-    zle reset-prompt
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
+PROMPT=' %F{magenta}%n@%m%f %F{green}%5~%f %F{red}>>%f '
 
 # Find and set branch name var if in git repository.
 function git_branch_name(){
