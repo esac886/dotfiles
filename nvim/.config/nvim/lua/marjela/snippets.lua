@@ -1,9 +1,25 @@
 local ls = require("luasnip")
 local s = ls.snippet
 local t = ls.text_node
+local f = ls.function_node
 local i = ls.insert_node
 local su = require("luasnip_snippets.common.snip_utils")
 local nl = su.new_line
+
+ls.add_snippets("all", {
+    s({ trig = "gb", desc = "current branch" }, {
+        f(
+            function(args, parent, user_args)
+                local _, res = pcall(vim.fn.system, "git branch --show-current")
+                if vim.v.shell_error ~= 0 then
+                    return ""
+                else
+                    return string.sub(res, 1, -2)
+                end
+            end
+        )
+    })
+})
 
 ls.add_snippets("c", {
     s({ trig = "fori", desc = "for size_t loop" }, {

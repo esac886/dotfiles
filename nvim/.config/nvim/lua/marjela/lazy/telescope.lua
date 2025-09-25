@@ -44,6 +44,8 @@ return {
                     builtin.find_files()
                 end
             end, {})
+            -- find buffers
+            vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
             -- find help
             vim.keymap.set("n", "<leader>fH", builtin.help_tags, {})
         end

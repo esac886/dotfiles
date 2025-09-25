@@ -23,16 +23,11 @@ return {
         "neovim/nvim-lspconfig",
 
         config = function()
-            local lspconfig = require("lspconfig")
+            vim.lsp.config("lua_ls", { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } })
 
-            local servers = {
-                clangd = {},
-                gopls = {},
-                lua_ls = { settings = { Lua = { diagnostics = { globals = { 'vim' } } } }, },
-            }
-
-            for name, opts in pairs(servers) do
-                lspconfig[name].setup(opts)
+            local servers = { "clangd", "gopls", "lua_ls" }
+            for _, name in pairs(servers) do
+                vim.lsp.enable(name)
             end
 
             vim.api.nvim_create_autocmd("LspAttach", {
