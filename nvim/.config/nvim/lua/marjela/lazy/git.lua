@@ -14,7 +14,7 @@ return {
                     end
 
                     -- show changes
-                    map('n', '<leader>gp', gitsigns.preview_hunk)
+                    map('n', '<leader>gs', gitsigns.preview_hunk)
                     -- list hunks in cur buff
                     map('n', '<leader>gl', gitsigns.setqflist)
 

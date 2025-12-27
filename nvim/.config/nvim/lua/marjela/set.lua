@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.cmd("colorscheme habamax")
+vim.cmd("colorscheme wildcharm")
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -9,7 +9,7 @@ vim.opt.shiftwidth = 0
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 -- better switch indentation
-vim.opt.cinoptions = ':0'
+vim.opt.cinoptions = ':0(0,W4'
 
 vim.opt.guicursor = ""
 vim.opt.swapfile = false
@@ -30,6 +30,8 @@ vim.opt.wrap = true
 vim.opt.nrformats = "bin,hex,alpha"
 vim.opt.langmap =
 "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+
+vim.opt.colorcolumn = "90"
 
 -- for pretty panes separator (at least in my colorscheme)
 vim.cmd("highlight WinSeparator ctermbg=0")

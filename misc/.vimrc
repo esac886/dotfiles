@@ -9,13 +9,15 @@ set ignorecase
 set number
 set relativenumber
 set noswapfile
+set termguicolors
 
-colorscheme habamax
+colorscheme wildcharm
+set background=dark
 syntax on
 
 let mapleader=" "
 map - :Ex<CR>
-map [c :cnext<CR>
-map ]c :cprev<CR>
+map ]q :cnext<CR>
+map [q :cprev<CR>
 map <leader>co :copen<CR>
 map <leader>cc :cclose<CR>

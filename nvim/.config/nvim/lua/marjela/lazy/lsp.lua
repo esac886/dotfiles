@@ -23,6 +23,10 @@ return {
         "neovim/nvim-lspconfig",
 
         config = function()
+            if vim.wo.diff then
+                return
+            end
+
             vim.lsp.config("lua_ls", { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } })
 
             local servers = { "clangd", "gopls", "lua_ls" }

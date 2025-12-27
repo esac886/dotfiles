@@ -18,8 +18,29 @@ stty stop undef
 
 # enable emacs mode
 bindkey -e
-# ctrl-u to delete whole line before cursor (like in bash)
+
+# systemclipboard integration
+x-copy-region-as-kill () {
+    zle copy-region-as-kill
+    print -rn -- $CUTBUFFER | xclip -i -selection clipboard
+}
+x-kill-region () {
+    zle kill-region
+    print -rn -- $CUTBUFFER | xclip -i -selection clipboard
+}
+x-yank () {
+    CUTBUFFER=$(xclip -o -selection clipboard)
+    zle yank
+}
+zle -N x-copy-region-as-kill
+zle -N x-kill-region
+zle -N x-yank
+
+bindkey \\ew x-copy-region-as-kill
 bindkey \^u backward-kill-line
+bindkey \^w x-kill-region
+bindkey \^y x-yank
+
 
 # C-N and C-P up-down
 bindkey '^P' up-line-or-history

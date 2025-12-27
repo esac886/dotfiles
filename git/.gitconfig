@@ -3,18 +3,22 @@
 [credential]
     helper = store
 [alias]
-    diffs = diff --staged
-    mergec = merge --continue
-    rebasei = rebase --interactive
-    rebasec = rebase --continue
-    s = status -s
-    ss = status
-    amend = commit --amend -a --no-edit
-    eamend = commit --amend -a
-    sh = show --oneline --pretty=medium
-    shown = show --oneline --pretty=medium --name-only
+    amend = commit --amend --no-edit
     lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold yellow)%h%C(reset) - %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%n'
 [init]
 	defaultBranch = main
 [push]
 	autoSetupRemote = true
+[diff]
+    tool = nvimdiff
+[difftool]
+    prompt = false
+	trustExitCode = true
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$REMOTE\" \"$LOCAL\""
+[merge]
+    tool = nvimdiff
+[mergetool]
+    prompt = true
+[mergetool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"

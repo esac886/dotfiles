@@ -26,7 +26,7 @@ export FCEDIT=$EDITOR
 # paging
 export MANPAGER=moar
 export PAGER=moar
-export MOAR='-no-statusbar -quit-if-one-screen -wrap'
+export MOAR='-no-statusbar -wrap'
 
 # misc
 export GTK_THEME=Adwaita:dark
