@@ -10,14 +10,23 @@ setopt promptsp             # don't clean lines without newline at the end
 
 setopt append_history inc_append_history share_history # better history
 
-# auto-suggestions
-# source $XDG_DATA_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # disable accidental ctrl s
 stty stop undef 
 
 # enable emacs mode
 bindkey -e
+
+# ctrl-g like in bash
+# Define a widget to cancel the mark
+function cancel-mark() {
+    if [[ $REGION_ACTIVE -eq 1 ]]; then
+        zle set-mark-command -n -1  # Deactivate the mark
+    else
+        zle send-break        # Behave like C-g in Emacs when no mark is active
+    fi
+}
+zle -N cancel-mark
+bindkey "^g" cancel-mark
 
 # systemclipboard integration
 x-copy-region-as-kill () {
@@ -41,10 +50,8 @@ bindkey \^u backward-kill-line
 bindkey \^w x-kill-region
 bindkey \^y x-yank
 
-
-# C-N and C-P up-down
-bindkey '^P' up-line-or-history
-bindkey '^N' down-line-or-history
+# disable fwd-i-search
+bindkey -r '^S'
 
 # prompt
 source $ZDOTDIR/prompt.zsh
